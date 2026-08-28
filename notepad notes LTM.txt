@@ -1,0 +1,1023 @@
+Python- 
+How python manages the memory-
+object is stored in heap memoery means when task is done it automatically deletes
+function is stored in stack memory
+-------------------------------------------------------------------------------------------------------------
+// -> this is floor division
+isinstance(num,int)-> function to check if an object is an instance of a particular class or type
+
+In Boolean write T capital for True and F capital for False
+----------------------------------------------------------------------------
+by default print function end the line and starts from new line 
+use end=" " or end="*" Basically end removes the backslash and replace with the character or word we give
+=============================================================================
+If you have a long line of code that you want to split for readability, place a backslash at the exact spot where you want to break the line.python# The backslash tells Python: "This line continues on the next line"
+long_sentence = "This is a very long sentence that I am splitting " \
+                "across multiple lines in my code editor."
+print(long_sentence)
+# Output prints as ONE single line: 
+# This is a very long sentence that I am splitting across multiple lines in my c
+==========================================================================================
+round to 2 decimal places-
+print("Sum: {a+b:.2f}") <-- now the result would be round off to 2 decimal places(use colon and then .2f for 2 decimal place)
+=========================================================================================
+LEngth of characters in python- len(name)
+==========================================================================================
+round function-
+round(var,2)
+---------------------------------------------------------------------------------
+Difference btw round-off using round() and string formatting
+
+if after round off , andswer is 50.00, then round will display it as 50.0 bcoz mathematically 50.00=50.0
+but f"{}:.2f" will display the exact 50.00 in the output.
+---------------------------------------------------------------------------------
+range for negative
+range(100,50,-5) ---> [100,95,90,85,80,75,70,65,60,55]
+-----------------------------------------------------------------------------
+sum() --->to find total to elements in a list, tuple,dict
+max() --->find maximum among elements
+min() --->find minimum among elements
+-------------------------------------------------------------------------------
+defining global variable inside method/fun--
+
+var=100
+
+def manu():
+	global var --using global variable inside function
+	var=500 --it will change the value of global variable also
+
+print(var)  --output will be 500
+====================================================================================
+filter(func,sequence) --> sequence can be range(),list,tuple,string
+this function returns subset which satisfy the condition	
+in string it check each character
+==============================================================================
+map(function,sequence)
+
+applies function to each element of sequence and returns the result
+================================================================================
+reduce(function,sequence)
+from functools import reduce
+
+it apply func to sequence and give single value
+===================================================================================
+assigning smallest number-
+a=-int('inf')  --Here inf stands for infinity
+====================================================================================
+join the list based on delimeter
+(" ".join(list1))
+===================================================================================
+sorting based on specific 2 or three condition condition-
+sorted(list2,key=lambda x: (len(x),x) )  --here len(x) first will sort wrt to length and then x will sort alphabetically
+sorted(list2,key=lambda x: (-len(x),x) )  --here -len(x) will sort according to largest to smallest
+================================================================================
+eval() func-
+automatic converting datatype according to input-
+exanple-> a=eval(input())
+================================================================================
+creation of tuple--
+tp=(10) -> this is wrong , tp is int not tuple
+tp2=(10,) -----> this is tuple
+tp1=10,   -----------this is also tuple
+tp.get(key,message if not exit)-> checks for the key if not exist then give the message
+=======================================================================================
+How to get the key in dictionary-
+my_dict = {'Apples': 5, 'Bananas': 12, 'Cherries': 8}
+
+# Get the key with the maximum value
+max_key = max(my_dict, key=my_dict.get)
+
+print(max_key)
+# Output: Bananas
+=======================================================================================
+
+*******************************************************************************************************************
+
+OOPS-
+
+super() function is used to call parent class
+python does not support method overloading
+dict.get--> it will give key(search on chatgpt for more info)
+
+In inheritance if parent class has parameterized constructor then only we have to use super() function in child class constructor to invoke the parent class.
+
+abstract method is used to ensure that its child class have the mandatory function with same name
+
+arr[-1,-1] --> this will give last elements of 2D array
+ravel() flattens the array into 1D array
+view=arr[0:3] --> this will change the orginal array also 
+use copy() to copy into another variable and then do changes into it
+new_lst=arr.tolist() ---> to convert array into list
+np.full(3,6) --> it creates array with 3 elements having value as 6
+arr[1,0] --> it means element from 1st row and 0th column
+`flatten` returns a new copy of the array, whereas `ravel` returns a flattened array as a view if possible.
+
+************************************************************************************************************************
+
+NumPy functions-
+
+np.array() --> To create 1D, 2D and 3D array
+np.matrix() --> To create 2D matrix
+a.ndim --> to get the dimension of array
+a.shape --> to get the dimension 
+a.size --> to get no of elements in array
+np.fromfunction() --> (basically lambda function)
+np.fromiter() --> use Generator object to create array
+np.fromstring() --> use string, sep='' to define separator , only numerical values
+np.arange() --> to define numbers in range-> start,stop,step
+np.linspace() --> to create evenly distributed no's between numbers -> start,end,no of elements.
+
+****************************************************************************************************************************
+
+Aug18--Batch Ending
+24/06/2026   -------------------------------------------------BIG DATA-------------------------------------------------------
+
+Hadoop is framework
+HDFS-->Hadoop Distributed File System
+Hive-->used for querying purpose
+
+HDFS commands-
+hdfs dfs -mkdir
+hdfs dfs -mkdir -p /user/Hadoop/....
+hdfs dfs put -f file1.txt /user/Hadoop/...   ----moving file
+hdfs dfs -ls /user/Hadoop/...
+hdfs dfs -get -f 
+
+MapReduce- not efficient and slow, now replaced by Pyspark, Hive - it is the 1st solution for parallel processing
+mapper, reducer 
+
+Hive is used for querying purpose--it interacts with the hdfs database for querying, the real tables or files are in hdfs in data nodes
+Hive inbuilt database is called inbuild/emerged Database(Derby) and if it uses other database then they are called remote database (sql,oracle,maria db...etc)
+
+this inbuilt/remote database is used to keep metadata about the table like database schema, table schema...etc and it is shared among all the data nodes
+
+HUE(Hadoop User Interface) default port of hue-8888
+
+id-hueadmin
+pass- hueadmin@123
+
+--------------------------------------------------------------------------spark-----------------------------------------------------------
+
+Apache Spark works on top of HDFS (Hadoop Distributed File System). Spark does not include its own storage system, meaning it must pair with an external data layer. it can also process data from cloud object storage platforms like Amazon S3, Google Cloud Storage, or Azure Data Lake storage.
+
+spark is an alternative for Hadoop MapRaduce, it does parallel processing more effeciently-
+spark performs in-memory-computation ,it completely loads the data into ram ,performs the operations and then writes the result back to file.
+it can easily integrate with other environments, data lakes and data warehouses.
+
+by default spark core perform batch processing but mainly used for real time it has spark stream.
+
+Datalocality- it defines which data is at what worker node in spark,(location of particular data)
+master node- similar like data node in hdfs
+cluster manager-it assigns the resources for the process/task. it contains datalocality
+driver program- for every executable task, it is generated(contqnins the requirement to complete that task eg- cpu, memory..etc)
+workernode- responsible for executing task
+Executor-coordinate the task within workernode- eg-akansha mam
+JVM(task) - who is doing task- eg-trainer
+After completion of task, result will go to DP(driver program)
+
+in hive when we load the file, then we create schema in remote/inbuilt database, so we have 2 options to create internal and external table.
+to create external table use external keyword. (create external table table_name;)
+
+if we created internal table and later drop internal table then the metadata as well as table from the source file, both will be deleted.
+but in external table only the metadata will be deleted from from remote/inbuilt database.
+
+for making external table , manually load the file from local path to hdfs and then make external table through hive
+
+default path of file after loading - user/hive/warehouse
+
+Disadvantage of Derby(Inbuilt database)-
+for every worker-node ,you have a separate Derby ,unlike Remote Database which is commom for all workernode,so in Derby if any worker-node goes offline then the metadata or table scheme also gets lost but in Remote it doesn't happen.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+spark= (SparkSession.builder.appName("Sample1").master("local[*]"))   -- master is used for specifying driver program , local[*]-- * means using all cores of cpu and local[1] means using only 1 core
+.getOrCreate means if its already there than get otherwise create new one.
+.withColumn("")-- this fun creates new column if its not there and if its there then it transforms that column only
+in spark, by default the data or dataframe gets divided into 3 partitions
+no of partiotions is equal to no. of task
+emp.rdd.getNumPartitions() -->use this func to get no of partitions done
+
+StructType: Represents the overall blueprint of the DataFrame (the table structure). It acts as a collection or container that holds all the columns together.
+StructField: Represents an individual column inside that table. It defines three things: the name of the column, the data type of the column, and whether the column can contain null (blank) values.
+StringType & DoubleType: These are the specific data types assigned to those columns. StringType is used for text data (like a "category" or a "status"), and DoubleType is used for high-precision decimal numbers (like a monetary value or a timestamp metric).
+
+Broadcast in Spark---------
+Suppose one big table is in workernode1 and small table is in workernode2, and if we want to join table1 to table2 then we will broadcast table2, broadcast will create a copy of table2 in every workernode so it is easy to join it with large tables
+
+use condition in spark------------------------
+when(F.col("delta_qty") > 100, 1).otherwise(0)).alias("large_shipments_count")
+
+***************************************************************************************************************************
+
+from pyspark.sql import SparkSession 
+from pyspark.sql.functions import col,count,avg,sum as _sum
+# we are aliasing sum bcoz python also contains sum, thatswhy it will be mismatch without avg
+
+spark= (SparkSession.builder.appName("Sample1").master("local[*]").getOrCreate())
+
+emp_data=[[101,"Gaurav",1000],[102,"Sourav",1000],[103,"Gaurav",1000],[104,"Sourav",1000],[105,"Sourav",1000],[106,"Gaurav",1000]]
+
+emp_schema="id int, name string, ppid int"
+
+emp=spark.createDataFrame(emp_data,emp_schema)
+# emp.withColumn("salary",col("salary").cast("integer")) --change datatype of column
+#if column doesnt exist then it will create that column
+emp.show()
+emp.printSchema()
+
+emp.select("name","ppid").show()
+
+emp.select(
+    col("name").alias("employee_name"),
+    col("ppid").alias("monthly_pay")
+).show()
+
+#using conditions for filtering
+emp.filter(col("name")=="Gaurav").show()
+#filtering where where
+emp.where("id>103").show()
+#selecting specific columns with where fun
+emp.select(col("name")).where("id>103").show()  #it is like- select name from emp where id>103
+#selecting multiple conditions with outputing only specific column
+emp.filter((col("name")=="Gaurav") & (col("id")>102)).select(col("name")).show()
+#using groupby and using aggregate functions
+empout=emp.groupBy("name").agg(count("*").alias("name_count"),
+_sum("ppid").alias("total_ppid"),
+avg("ppid").alias("avg_ppid"))
+
+#now looks how the data is divided into partitions
+print("Partitions of 'emp' df:",emp.rdd.getNumPartitions())
+
+empout.show()
+
+#writing the file into a csv format  --we have append mode (adding the data with previous data)
+empout.write.format("csv").mode("overwrite").save("sample_output.csv")
+#including columns names into into saved files--
+empout.write.format("csv").mode("overwrite").option("header","true").save("sample_output.csv")
+#dropna() in spark on particular column----use this with dataframe because it deals with dataframe object
+df_cleaned = df.dropna(subset=["id"])
+#not null values on particular column------use this with column object
+df_cleaned = df.filter(col("id").isNotNull())
+---------------------------------------------------------------------------------------------
+⏱️ datediff()Functionality: Subtracts the second date from the first date and returns the difference in days as an integer.Syntax: datediff(end_date_column, start_date_column)Example:
+from pyspark.sql.functions import col, datediff
+
+df.withColumn("days_held", datediff(col("return_date"), col("borrow_date")))
+----------------------------------------------------------------------------------------------
+how to make df schema--
+schema=StructType(
+        [
+            StructField("trip_id",StringType(),True),
+            StructField("zone_id",StringType(),True),
+            StructField("trip_date",DateType(),True),
+            StructField("rider_count",IntegerType(),True),
+            StructField("wait_minutes",IntegerType(),True),
+            StructField("trip_status",StringType(),True),
+            StructField("trip_date",DateType())
+        ]
+    )
+-----------------------------------------------------------------------------------------------
+Another way to read csv--
+return spark.read.csv(path,header=True,schema=Schema)
+---------------------------------------------------------------------------------
+Retrieving times from timestamp--
+
+df.withColumn("time_str", date_format(col("timestamp_column"), "HH:mm:ss"))
+
+-------------------------------------------------------------------------------
+Retrieving date from timestamp--
+
+df.withColumn("time_str", to_date(col("timestamp_column")))
+
+-----------------------------------------------------------------------------
+create TempView of Dataframe--
+
+df_daily_hub.createOrReplaceTempView("daily")
+df_hub_topup.createOrReplaceTempView("topups")
+--------------------------------------------------------------------------
+Use cast function in sql query ---
+
+query = """
+        WITH base_energy AS (
+            SELECT 
+                hub_id,
+                ROUND(AVG(total_energy) * 1.30, 0) AS suggested_daily_energy
+            FROM daily
+            GROUP BY hub_id
+        )
+        SELECT 
+            CAST(e.hub_id AS STRING) AS hub_id,
+            CAST(e.suggested_daily_energy AS DOUBLE) AS suggested_daily_energy,
+            CAST(COALESCE(t.topups_in_period, 0) AS LONG) AS topups_in_period,
+            CAST(ROUND(COALESCE(t.avg_topup_kwh, 0.0), 0) AS DOUBLE) AS avg_topup_kwh
+        FROM base_energy e
+        LEFT JOIN topups t
+            ON e.hub_id = t.hub_id
+        ORDER BY suggested_daily_energy DESC
+    """
+----------------------------------------------------------------------------------
+# Group by an ID/Category, count specific values, and calculate other metrics
+
+df.groupBy("department") \
+    .agg(
+        F.sum(F.when(F.col("status") == "Active", 1).otherwise(0)).alias("active_count"),
+        F.avg("salary").alias("average_salary"),
+        F.max("age").alias("max_age")
+    ).show()
+-------------------------------------------------------------------------------------------
+syntax for fillna() and dropna()
+
+df.dropna(subset=["city","date"])
+df.fillna(value,subset=["city"])
+-------------------------------------------------------------------------------------
+get only hour from timestamp--
+
+hour(col("col_name"))
+
+--------------------------------------------------------------------------------------
+using isin() in pyspark--
+
+.isin("CONNECTED","DROPPED")
+
+--------------------------------------------------------------------------------
+check wether a column needed after groundBy and after doing operation on aggregated columns, then use withcolumn() to make that column and fill values
+-----------------------------------------------------------------------------------------
+Syntax of dropduplicates-
+dropDuplicates()
+----------------------------------------------------------------------------------------
+If the method returns a new DataFrame, it is a Transformation (lazy). If it returns anything else (like an integer, a list, a file, or nothing), it is an Action (eager).
+-----------------------------------------------------------------------------------------
+
+***************************************************************************************************************
+
+GCP-NOTES------------------------------------------------------------------GCP-NOTES-----------------------------------------------------------------------
+
+Elasticity vs Scalability-
+
+Scalability is the ability of a system to handle an increasing volume of work over time by adding resources, without changing the system's architecture.
+Elasticity is the ability of a system to automatically expand and shrink its resources in real-time to match immediate ups and downs in demand.
+----------------------------------------------------------------
+
+S4N--
+Terminologies--concept is same just terminology differ in cloud
+
+Physical Machine                 Cloud Machine
+
+S-Server                          VM Instance
+S-Software                         Image(OS)
+S-Storage                        GCS(Google Cloud Storage) ---works like HDFS
+S-Security                         Firewall
+N-Networking                       VPC Network
+------------------------------------------------------------------
+
+Virtualization-
+
+Virtualization is a technology that allows you to create multiple simulated environments or dedicated resources from a single, physical hardware system.
+---------------------------------------------------------------------
+Datacenter:It is the physical building that houses the actual servers, storage drives, and networking hardware that run all cloud services
+Zone: A single, physically isolated deployment area containing data centers within a region to provide fault isolation.
+Region: A specific geographic location (like a city) composed of three or more interconnected zones.
+Multi-region: Data distributed across three or more separate regions over a broad geographic area like a continent.
+---------------------------------------------------------------------
+Object- an object is an individual piece of data (a file) stored within Google Cloud Storage
+----------------------------------------------------------------------
+Google Kubernetes Engine- 1 VM contains a lot of containers.
+
+A container is a lightweight, standalone package of software that includes everything needed to run an application: code, runtime, system tools, libraries, and settings.
+Unlike virtual machines that virtualize the underlying hardware, containers virtualize the operating system kernel, allowing multiple isolated applications to run on the exact same host OS.
+-----------------------------------------------------------------
+Cloud spanner- multi-node database- vast amount of data, useful for fault tolerance, (used for structured data)
+Firestore- No-sql database, Serverless (used for un-structured data)
+cloud bigtable-huge amount of no-sql data (un-structured data)
+------------------------------------------------------------------
+vpc- handle network switches,router
+google cloud dns(Domain Name System)- it map ip-address to name so we dont have to remember ip-address
+google cloud load balancing- distribute the traffic among multiple servers.
+google cloud CDN(Content Delivery Network)- a global web-acceleration service that speeds up website and application performance by caching content closer to users.
+it sends the content to the nearest server from source with respective to user to get faster result(low latency).
+-----------------------------------------------------------------
+Pub/Sub- data ingestion (like spark streaming in gcp)
+Big Query- equivalent to HIve (SQL query)
+Dataflow & Dataproc- Equivalent to apache spark(can write pyspark query)
+----------------------------------------------------------------------
+BigQuery vs Dataflow vs Dataproc-
+BigQuery is a fully managed data warehouse for analytics and SQL queries.
+Dataflow is a serverless engine for batch and real-time streaming pipelines.
+Dataproc is a managed platform for running open-source Hadoop and Spark clusters.
+-----------------------------------------------------------------------
+Hierarchy in GCP-->
+Organization-->Folder-->Project-->Resources
+-------------------------------------------------------------------
+Authentication vs Authorization-
+Authentication- verifies identity of a user
+Authorization- what services can we access
+-----------------------------------------------------------------
+Here are the single-sentence summaries for each Google Cloud Storage class:
+Standard: Best for frequently accessed "hot" data like website assets, live streaming, and active application data.--(Recent)
+Nearline: Ideal for data accessed less than once a month, such as monthly backups and data analysis.--(30 Days)
+Coldline: Designed for rarely accessed data needed once a quarter, like disaster recovery and old file archives.--(90 Days)
+Archive: Perfect for long-term data preservation accessed less than once a year, specifically for regulatory compliance.--(365 Days)
+-------------------------------------------------------------------------
+Compute Engine: IaaS
+Google Kubernetes Engine: Hybrid (bridges IaaS and PaaS).
+App Engine: PaaS.
+Cloud Functions: PaaS.
+Cloud Run: PaaS
+------------------------------------------------------------------------------
+Compute Engine- IaaS
+Hosted Hypervisor- It needs base OS
+Bare Metal Hypervisor- It doesn't need any OS on user machine.
+--------------------------------------------------
+PD- Persistent Disk
+durable, high-performance network storage attached to virtual machines.
+Boot PD: The primary disk containing the operating system (OS) and system files required to start up the virtual machine.
+Data PD: An additional, separate disk attached to a virtual machine specifically used to store user applications, databases, and logs.
+Standard PD (pd-standard): Cost-effective, magnetic HDD storage optimized for large sequential read/write operations like log processing.
+Balanced PD (pd-balanced): A cost-efficient solid-state drive (SSD) offering a balanced baseline performance for general-purpose application workloads.
+SSD PD (pd-SSD): High-performance flash storage with low latency and high IOPS designed for enterprise applications and relational databases.
+--------------------------------------------------------------------------------
+Boot Disk-
+
+Contains the operating
+system and boot files
+required to start the VM------only 1 per VM
+
+Attached Disk-
+
+Stores application data,
+databases, and additional
+storage
+
+Multiple Disks-
+
+A single VM can have
+multiple attached disks
+
+Independent Sizing-
+
+Each disk can be resized
+independently
+-------------------------------------------------------------------------------------
+Snapshot - copy of current state of hard disk,
+it is a point-in-time, incremental backup of a Persistent Disk used for data recovery, backup retention, or cloning virtual machines.
+-----------------------------------------------------------------------------------
+Preemptible VM: A short-lived, low-cost virtual machine that GCP can terminate at any time with a fixed maximum lifespan of 24 consecutive hours.
+Spot VM: The modern replacement for Preemptible VMs, offering the same steep discount and sudden termination, but with no 24-hour runtime limit.
+-----------------------------------------------------------------------------------------
+What is an Instance Template?
+
+A blueprint that defines VM configuration including machine type, disk, network settings, and metadata.
+-------------------------------------------------------------------------------------------
+Managed Instance Group (MIG) is a collection of identical virtual machine instances created from a single template(Instance Template) that automatically scales, self-heals, and load-balances your application.
+☁️ Core Capabilities-
+Automated Scaling: Automatically adds or removes VMs based on changing traffic demand.
+Auto-healing: Constantly monitors VM health and automatically recreates any instances that crash or fail.
+High Availability
+-------------------------------------------------------------------------------------------------------
+A Rolling Update is a deployment method for Managed Instance Groups (MIGs) that gradually replaces old VM instances with new ones to update application code or configurations without causing downtime.
+------------------------------------------------------------------------------------------------------
+IP address-
+
+Private IP is mandatory for everything but public IP is optional for user interaction
+
+classifies into 3
+private IP Addresses-
+Class A       10.x.x.x (10.0.0.0 to 10.255.255.255)
+Class B       172.16.x.x to 172.32.255.255
+Class C       192.168.0.0 to 192.168.255.255 
+except the above mentioned IP's, all are public IP's
+
+Public IP address- Public/Internet Communication
+
+VPC Network: A global, virtual boundary that provides private connectivity for your cloud resources across the entire world.
+Subnet: A regional IP address range within a VPC used to organize, isolate, and host your virtual machines and services.
+Region-Wise Subnet: The structural design in GCP where every subnet belongs strictly to one geographic region, but multiple subnets across different regions can talk to each other globally inside the same VPC.
+An IPv4 address consists of 32 bits total, divided into a Network ID (identifying the network) and a Host ID (identifying the specific device), written in Classless Inter-Domain Routing (CIDR) notation (e.g., /24).
+🛠️ How Bits are Divided (The /24 Example)
+In a standard 10.0.0.0/24 block:
+Network ID: The first 24 bits define the network prefix (10.0.0.X). These bits are locked and cannot change.
+Host ID: The remaining 8 bits (32 total - 24 network) are left to assign up to 256 unique addresses for your virtual machines.
+🛑 Reserved IP Addresses in GCP
+In every GCP subnet, Google automatically reserves the first two and the last two IP addresses in the range for network infrastructure:
+.0 (First IP): Network Address (identifies the subnet itself).
+.1 (Second IP): Default Gateway (used by VMs to route traffic out of the subnet).
+.254 (Second to last IP): Reserved by Google for future infrastructure usage.
+.255 (Last IP): Broadcast Address (reserved for network broadcasting functionality)
+-------------------------------------------------------------------------------------------------------------------------------------
+Auto Mode VPC: A basic network that automatically generates a predefined, fixed IP subnet in every GCP region for quick setup with less administrative control.
+Custom Mode VPC: An enterprise-preferred network where you manually design and size regional subnets, providing flexible IP planning and granular traffic control.
+--------------------------------------------------------------------------------------------------------------------------------------
+Routes are the network rules that direct traffic from your virtual machine instances to specific destinations, whether inside the VPC, to other networks, or out to the internet.
+-----------------------------------------------------------------------------------------------------------------------------------------
+g1 and f1 small vm instance is under n1 type series
+-----------------------------------------------------------------------------------------------------------------------------------------
+In IAM(Identity Access and Management),
+primitive roles are applicable on project level
+Primitive Roles-Broad, project level permissions(Owner ,Editor ,Viewer)
+Predefined Roles- Services-specific ,granular permissions
+Custom Roles- User defined permission set.
+--------------------------------------------------------------------------------------------------------------------------------------------
+Service Account-
+A service account is a special type of Google Cloud account used by applications, scripts, or machines, rather than human users.
+Instead of a username and password, it uses cryptographic keys to authenticate. This allows your code to securely access Google Cloud resources and APIs automatically without any human intervention.
+---------------------------------------------------------------------------------------------------------------------------------------------
+Pub/sub- Publisher/subscriber
+its notes are written in LTM Notebook, look into it bro..
+-----------------------------------------------------------------------------------------------------------------------------------------
+Dataprep is used for transformation(data cleaning)
+for opening dataprep ,there is no option in gcp gui , use this link- https://console.cloud.google.com/dataprep
+-----------------------------------------------------------------------------------------------------------------------------------------
+Dateformat in gcp-
+
+use edit formulae in new step for doing dateformat
+
+DATEFORMAT(PARSEDATE(transaction_date, ["MM-dd-yyyy","dd-MM-yyyy","dd/MM/yyyy","MM/dd/yyyy","yyyy/MM/dd","yyyy-MM-dd"]),"yyyy-MM-dd")
+
+first we are specifying all the format available in our dataset in list, then we are giving that in which format we want it
+
+PARSEDATE (The Intake): It scanned your messy, mixed-format date text from left to right, figured out which pattern matched, and converted the text into a unified backend Date object.
+
+DATEFORMAT (The Output): It took that unified backend Date object and reshaped it into your final, clean "yyyy-MM-dd" text string.
+---------------------------------------------------------------------------------------------
+To add new column with calculation based on different columns go to new step-->new formula
+---------------------------------------------------------------------------------------------
+for aggregation go to new step-->Group By
+--------------------------------------------------------------------------------------
+In dataprep ,if any column has (.) then it means that is null so for that remove whitespace from format option
+--------------------------------------------------------------------------------------
+for sending the transformed file to BigQuery select Add action in Publishing option in dataprep while sending the file to BigQuery.
+--------------------------------------------------------------------------------------------------
+Dataflow is an alternative of apache spark in GCP-
+It is used for Batch processing and stream processing-
+
+Workflow of Batch processing-
+
+csv in bucket------------------>Dataflow--------------------->BigQuery
+(Data Source)              (processing/cleaning)          (for Querying purpose)
+
+Workflow of stream processing
+
+Pub/Sub------------------------>Dataflow---------------------->BigQuery
+(Data Source)              (processing/cleaning)          (for Querying purpose)
+
+for steps to create stream processing in Dataflow, i have clicked image, refer it.
+-----------------------------------------------------------------------------------------------------
+Dataproc is a managed service used to run open-source big data frameworks at massive scale like Hadoop/Apache Spark.
+used in data processing, connect open-source compute processing directly to Google Cloud Storage and BigQuery data lakes
+----------------------------------------------------------------------------------------------------------------
+to connect to MySQL through cloud shell use this command
+
+gcloud sql connect instance_id --user=root
+then type password
+
+              or
+
+mysql -h public_ip -u root -p    (h-host, u-user, p-password)
+mysql -h public_ip -u root -p User123
+---------------------------------------------------------------------------------------
+DataFusion-
+
+It is serverless ETL tool for cleaning data.
+It is GUI based and also supports live data ingestion.
+
+it lets people build massive data pipelines without writing code--
+Extracts: Grabs data from different, messy places.
+Transforms: Cleans, fixes, and reorganizes that data.
+Loads: Drops the clean data into a storage house (like BigQuery) so businesses can study it.
+
+It can manage all types of data- structured, unstructured and semi-structured.
+Cloud Data Fusion absolutely works on Dataproc. 
+In fact, Dataproc is the engine that does all the actual heavy lifting behind the scenes.
+
+NOte- while creating instance ,you will find zone in advanced option.
+--------------------------------------------------------------------------------------------
+EXTERNAL vs Native table in BigQuery-
+
+Native Tables - In a Native table, the actual data is physically moved from your external source and stored directly inside BigQuery's internal storage system. While copying massive datasets into BigQuery takes time upfront and incurs monthly storage fees, it makes your queries incredibly fast. This speed happens because the data is pre-converted into BigQuery’s highly optimized, compressed format on local disks, allowing the system to scan and process information instantly without any data traveling across a network during a query.
+
+External Tables - In an External table, the actual data never moves and stays completely inside its original source, such as Google Cloud Storage (GCS).
+This setup saves you from BigQuery storage fees and means you can query the data immediately without waiting for a long upload process. However, queries are much slower because BigQuery has to fetch the raw files over the network and convert them on the fly every single time you run a search, and you lose out on advanced performance features like clustering and time travel.
+------------------------------------------------------------------------------------------------
+For connection of cloud sql to BigQuery-
+
+in BigQuery, under dataset name, click on show more, then choose connection ,make a connenction.
+after making connection copy the service account id of that connection and then go to IAM ,do Grant access, in principle paste the service account id and in roles select cloud sql client and save.
+----------------------------------------------------------
+Partitioning physically splits a table by a specific column (like date), while clustering sorts and organizes data within those partitions based on the columns you choose in BigQuery.
+
+Partitioning lowers costs by skipping unneeded data segments, while clustering speeds up queries by co-locating similar rows.
+-------------------------------------------------------------------------------------
+A Materialized View is a precomputed table that stores the results of a database query physically on disk.Unlike a standard virtual view (which runs its query from scratch every time you call it), 
+A materialized view saves the data output to drastically speed up future read performance.
+------------------------------------------------------------------------------------------
+
+**********************************************************************************************************
+
+Ephemeral IP - Dynamic Public Ip
+Reserve Static External IP - Static public Ip, it remains constant always.
+Snapshot - current state of the disk(data copy of the disk)
+	    usecase- if we have to increase the size of disk, then take snapshot , delete the disk and create new disk with high memory using the snapshot 	    so all the data will be reserved.
+-------------------------------------------------------------------------------------
+For creating external static ip for vm there are 2 methods-
+Method1-
+Go to VPC->IP addresss->Reserve external
+make from here and then attach in vm in network->nic0 dropdown->external Ipv4 address add it.
+Method2-
+directly while creating vm, go to nic0 dropdown->external IPv4 address->reserve static IPv4 address
+--------------------------------------------------------------------------------------
+while creating firewall rules if network tags is not mentioned, then select allow all instance in the network, so that firewall rule will be applied to all the instance.
+If network tag is mentioned, then give it in firewall rule as well as in vm instance also, so it knows that this firewall rule is applicable for this particular vm.
+---------------------------------------------------------------------------------------
+For adding vpc network subnets in vm-
+In vm go to network, then go to add a network interface in that select and add your vpc network, then drink coffee.
+---------------------------------------------------------------------------------------
+How to make snapshot-
+In compute Engine->select snapshots from left menu(in storage) dude.
+---------------------------------------------------------------------------------------
+
+**************************************************************************************************************
+
+Apache Airflow is an orchestration tool for automation on scheduled basis.
+Apache Orchestration refers to the management and coordination of complex, automated data workflows across a distributed computing environment using open-source tools from the Apache Software Foundation.
+----------------------------------------------------------------------------------------
+MILESTONE-4
+ 
+Data ingestion --> pub/sub
+
+Data lake storage --> GCS Bucket
+
+Data processing --> Dataflow-Apache beam
+
+		--> Data Fusion-like a drag and drop,low code(wrangler),ETL tool,it uses dataproc
+
+		--> Dataprep-doing transformations without any code,ETL tool,it uses dataflow
+
+		--> Dataproc-managed apache spark
+
+Data warehousing --> BigQuery(OLAP)
+
+Data visualization --> Looker studio
+ 
+APACHE AIRFLOW:
+
+DAG = Recipe
+
+Task = Individual Step
+
+Scheduler = Manager who decides when to start
+
+Executor = Person who assigns the work
+
+Worker = Employee who does the actual work
+
+Metadata DB = Stores everything
+
+Web Server/UI = Shows everything
+ 
+Airflow = Complete system
+
+Apache airflow - is the ochestration tool for doing automation on schedule basis
+
+Apache Airflow is a Python-based open-source platform that helps organizations schedule, automate, monitor, and manage complex workflows and data pipelines using DAGs.
+ 
+DAG:
+
+Directed Acyclic graphs-A DAG (Directed Acyclic Graph) is a workflow that defines tasks and the order in which they should run, without creating any loops. Apache Airflow uses DAGs to automate and manage workflows.
+
+It understands only python files
+ 
+Scheduler:
+
+The Airflow Scheduler is a component that continuously monitors DAGs, checks their schedules and dependencies, and triggers tasks to run at the appropriate time. It only decides-
+
+	When to start
+
+	Which step is next
+
+	Whether a step can run
+
+The component in Airflow that decides when a workflow or task should start.
+ 
+Executer:
+
+The Executor is the component in Airflow that decides where and how tasks are actually run.
+
+Executor decides WHERE and HOW the task runs.
+ 
+Worker:
+
+A Worker is the component that actually performs the task.
+
+A Worker in Apache Airflow is a process or machine that executes the actual tasks assigned by the Executor. It performs the work defined in the DAG and reports the task status back to Airflow.
+ 
+ 
+           DAG
+
+            ↓
+
+      Scheduler
+
+            ↓
+
+       Executor
+
+            ↓
+
+    ┌─────┬─────┬─────┐
+
+    ↓       ↓       ↓
+
+Worker1 Worker2 Worker3 Worker4
+
+    ↓       ↓       ↓       ↓
+
+  TaskA   TaskB   TaskC   TaskD
+ 
+Metadata DB = Airflow's memory or register.
+
+It stores:
+
+What workflows exist
+
+When they ran
+
+Whether tasks succeeded or failed
+
+What should happen next
+
+Without the Metadata Database, Airflow cannot properly track or manage workflows.
+ 
+Airflow web server UI:
+
+Airflow UI is simply the visual dashboard used to monitor and manage all workflow activities in Apache Airflow.
+ 
+ 
+ ********************************************************************************************************
+
+Dataform
+Data Appliance
+-----------------
+Memorysotre
+-------------------------------------------------
+UNNEST is the SQL function used to unpack or flatten those nested arrays back into standard rows so you can query, filter, or aggregate them
+-------------------------------------------------
+Imp-
+Serverless means we dont have to worry about infrastructure, os, vm or anything , it is all managed and controlled by cloud Platform(Google)
+Server based means we have to choose or configure vm, storage...etc,
+--------------------------------------------------------
+Cloud Composer components in dag file-
+
+Sensors: Special operators that wait for an event to happen before letting the pipeline proceed. They poll continuously until a specific condition is met (e.g., checking if a file arrived in an S3 bucket or a database row was updated).
+
+Hooks: Reusable interfaces that handle external connections. They abstract away the low-level code, authentication, and API calls needed to talk to external systems (e.g., Postgres, Slack, or Google Cloud).
+
+XComs (Cross-Communications): A built-in mechanism that allows tasks to share small amounts of data with each other. Because tasks run in isolated environments, XComs let them pass state, variables, or IDs down the line.
+---------------------------------------------------------
+Datastream is Google Cloud’s fully managed, serverless Change Data Capture (CDC) and replication service.
+
+It tracks real-time changes (inserts, updates, and deletes) happening in your operational databases and streams them instantly into Google Cloud storage or analytics destinations.
+
+It reads the live database transaction logs continuously without slowing down the database. The moment a row changes, Datastream picks it up and syncs it to your data warehouse within seconds.
+---------------------------------------------------------
+Looker-
+
+In most dashboard tools, if five different analysts build five different charts for "Revenue," you often get five different numbers. 
+
+One analyst included taxes, one excluded refunds, and another forgot to filter out test accounts. Looker fixes this by creating a Modeling Layer called LookML. 
+
+Instead of writing SQL or setting up rules inside individual charts, you write the rule for "Revenue" exactly once in a master code file. Every dashboard, chart, and report across the entire company is then forced to use that exact same definition.
+-------------------------------------------------------------------
+Connected sheets-
+
+Connected Sheets acts as a direct bridge to BigQuery, allowing users to analyze billions of rows of data using familiar spreadsheet tools without experiencing the performance limitations of traditional spreadsheets. 
+
+It enables live querying, where BigQuery processes large datasets in the cloud(Bigquery) and returns only the final results to the user's laptop.
+-------------------------------------------------------------------
+CloudSQL-
+
+"Point-in-time recovery for timestamp restores" ,What it means: The database constantly saves a running history of every single transaction as it happens.
+
+It works like a Time Machine. If a bad software bug or a clumsy employee deletes your entire database at 2:05 PM, you can tell Google, "Hey, rewind the database back to exactly 2:04 PM," and everything pops back to life.
+--------------------------------------------------------------------
+Memorystore keeps all of its data directly inside a server's RAM (Random Access Memory)
+
+You place a Memorystore (Redis) cluster directly between your web application and your primary database. Here is how it saves your website:
+
+Caching Hot Lookups (The Product Details): The first shopper requests the jacket details. The application pulls it from the database and simultaneously saves it to Memorystore. For the next 49,999 shoppers, the application bypasses the main database entirely and grabs the data instantly from Memorystore's RAM in less than 1 millisecond.
+
+Session Management (The Cart): As shoppers log in and add the jacket to their carts, their login tokens and cart items are stored in Memorystore. RAM handles these rapid, constant read/write updates seamlessly.
+
+Native TTL Expiry: You configure a Time-To-Live (TTL) of 5 minutes on the product details cache. Once the flash sale ends or details change, the cache automatically deletes itself, forcing the application to fetch fresh data from the main database exactly once before caching it again.
+--------------------------------------------------------------------
+Bucket protection feature-
+
+1. Object Versioning -  A feature that automatically saves a history of an object whenever it is overwritten or deleted.
+
+2. Retention Policies (and Bucket Lock) - A rule that forces objects to be kept for a minimum specified time (e.g., 7 years).
+					  Even project owner cannot delete it.
+
+3. Uniform Bucket-Level Access (UBLA) - A security setting that deactivates per-object Access Control Lists (ACLs), forcing the bucket to use only 						centralized Google Cloud Identity and Access Management (IAM) policies.
+
+4. Signed URLs - A temporary, secure link generated by an application that grants time-limited read or write access to a specific object to anyone who 			 possesses the link.
+---------------------------------------------------------------------
+View Types in BigQuery -
+
+1. Logical Views: A saved SQL query that acts as a virtual table. It stores zero data on disk.
+2. Materialized Views: A view that executes a query, saves (caches) the physical results to storage, and automatically updates those results in the 			       background when the base tables change.
+3. Temporary Tables: A short-lived data object that exists only for the duration of a single multi-statement SQL script or user session.
+4. Authorized Views: A logical view that allows you to share query results with specific users without giving those users access to the underlying raw 		             tables.
+----------------------------------------------------------------------
+Windowing - 
+
+In stream processing, you are dealing with unbounded data—an infinite, continuous river of incoming data points (like user clicks or sensor readings).
+
+Because a stream never stops, you cannot calculate a standard metric like a global average or sum. You have to slice the infinite river into finite, manageable blocks of time. This slicing mechanism is called Windowing.
+
+1. Fixed Windows (Tumbling Windows): Time is divided into uniform, non-overlapping, contiguous chunks (e.g., exactly every 5 minutes).
+		Example- You run a cloud monitoring dashboard and need to display a line chart of API requests per minute. You configure a 1-minute Fixed 		Window. Every 60 seconds, the pipeline totals up the requests received in that block and updates the graph.
+
+2. Sliding Windows (Hopping Windows): Time windows that have a fixed duration but overlap with each other. They are defined by two metrics: the window size (length) and the slide (how often a new window opens).
+		If your window size is 10 minutes and your slide is 1 minute, a new 10-minute window opens every single minute.
+
+3. Session Windows: Dynamic windows that do not have a fixed time length. Instead, they are defined by a gap of inactivity (e.g., 30 minutes of silence).
+			The window opens when a user performs an action. It stays open as long as the user keeps generating events. If the user stops 				interacting for longer than your specified "gap duration", the window snaps shut and outputs the final result.
+----------------------------------------------------------------------
+1. Watermark: An internal system clock that estimates how far data processing has progressed.Why: Tells the system when it can probably assume all data for a specific timeframe has arrived, despite network delays.
+	Example: for a window of 2pm-3pm, watermark could be 3:15pm, so we can assure that till this time all the inputs have arrived.
+
+2. Triggers: The alarm or rule that tells a time window exactly when to output its current results.Why: Allows you to see real-time, early updates on a dashboard instead of waiting hours for a window to officially close.
+	Example: A trigger fires every 10 seconds to update a live website graph with current sales, even though the overall hour isn't finished.
+
+3. Allowed Lateness: A grace period that keeps a window's memory alive after the watermark has passed.Why: Prevents the system from permanently dropping valid data that arrived late due to a device losing internet connection.
+	Example: You set a 1-hour grace period. A phone that was offline since 2:30 PM reconnects at 3:45 PM; the system accepts its data and updates the 	2:00 PM ledger.If you are putting these notes into practice.
+------------------------------------------------------------------------
+Hotspotting -
+
+Hotspotting is a severe performance bottleneck that happens in distributed databases (like Google Cloud Spanner or Cloud Bigtable). It occurs when all incoming write or read operations hit a single database machine (node), while all other machines in the cluster sit completely idle and do nothing.
+
+If your primary key design uses monotonically increasing values—meaning every new row gets a key that is strictly higher than the last one (such as a sequential Order_ID like 1001, 1002, 1003, or a real-time timestamp)—every single new write will always land at the very end of the sorted list.Because it lands at the end of the list, it lands on the exact same server. 
+
+As a result, that one server gets overwhelmed and crashes, while the other servers you are paying for do zero work.
+
+Solution-
+
+Use a UUIDv4: Instead of sequential numbers, use a random string (e.g., f81d4fae-7dec-11d0...). Two orders created at the exact same millisecond will get completely different random starting letters, scattering them across all 20 servers instantly.
+--------------------------------------------------------------------------
+Idempotent - 
+
+Idempotency means an action can be repeated multiple times, but the final outcome remains exactly the same as if it ran only once.
+In data engineering and distributed systems, an idempotent pipeline is a safety net. If a system crashes halfway through a task and restarts, it will not corrupt your data with duplicates.
+
+The Solution: 
+
+1. The Overwrite Strategy (INSERT OVERWRITE)Instead of appending new rows directly to a table, the system explicitly wipes out the target partition or destination for that specific timeframe before writing fresh data.
+
+2. The Merge/Upsert Strategy (MERGE INTO)The system evaluates a unique identifier like a primary key (transaction_id or user_id) to check if a record already exists in the target table before committing a write.
+---------------------------------------------------------------------------
+Lazy Evaluation & Persist -
+
+Lazy Evaluation: Spark waits until the last second to process data.
+
+Unpersisted Recomputation: If you use a DataFrame more than once without saving it, Spark lazily re-runs the entire data-loading and filtering history from scratch for every single downstream task.
+
+Persist: It stops this loop by freezing the intermediate data in memory so subsequent tasks can reuse it instantly.
+----------------------------------------------------------------------------
+Ordering keys -
+
+A publisher feature that locks messages with matching keys into a strict first-in, first-out sequence.
+Ordering Keys are an advanced feature in Google Cloud Pub/Sub that allows you to enforce strict, chronological order for a specific entity or category of messages, without slowing down the rest of your global streaming system.
+-----------------------------------------------------------------------------
+Side Input - 
+
+A Side Input is an advanced feature in Apache Beam (Cloud Dataflow) that allows your streaming pipeline to read from a secondary, smaller data source to help process the main data stream.
+
+While the main stream processes millions of real-time events continuously, the Side Input acts as a companion lookup table or a helper reference guide that is cached directly in the memory (RAM) of every server worker node.
+------------------------------------------------------------------------------
+Data Ingestion Methods -
+
+1. Batch Load Job - A free, asynchronous operation that moves large chunks of bounded data into BigQuery. It does not use your query slots.
+
+2. Storage Write API: A high-performance, gRPC-based streaming ingestion framework. It combines streaming insertion with batch-like transactional guarantees     (exactly-once processing).
+
+3. BigQuery Subscriptions (Pub/Sub): A codeless, fully managed pipeline that routes messages directly from a Google Cloud Pub/Sub topic into a BigQuery table.
+--------------------------------------------------------------------------------
+HA - High Availability (HA) protects against downtime. It acts as an automatic backup safety net if your main database crashes.
+
+Read Replicas - It protect against slow performance. They act as extra database copies to offload heavy read traffic from your main database.
+--------------------------------------------------------------------------------
+Dataflow code is running and Updating the code meanwhile (No data loss)- 
+
+This cannot be done in Batch job, you have to cancel and then run again.
+
+For streaming there are 2 methods-
+-----------
+Option 1: In-Flight Update (Recommended for Streaming) -
+	Dataflow allows you to replace a running streaming pipeline with a new version. The new pipeline takes over the job state, buffered data, and  windows from the old pipeline with zero downtime and no data loss.
+-----------
+Option 2: Drain & Re-launch (No data loss)-
+
+Phase 1: Closing the Intake ValveDataflow immediately stops pulling new messages from your source (like a Pub/Sub topic or Kafka). The new incoming data simply waits safely in Pub/Sub. No data is lost.
+Phase 2: Clearing the Backlog. The Dataflow workers keep running to process every single message that was already inside the pipeline when you hit drain. It completes all current window calculations and time-stamped groupings.
+Phase 3: Clean ShutdownOnce the pipeline is completely empty and all processed data is safely saved into your database (like BigQuery), Dataflow automatically shuts down and stops charging you money.
+The Relaunch:Now that the old job is cleanly stopped, you deploy your brand new code as a completely fresh Dataflow job. It starts pulling the waiting data from Pub/Sub from exactly where the old job left off.
+
+IMP-While the old pipeline is draining and shutting down, your upstream source (like Google Cloud Pub/Sub or Kafka) keeps collecting new data from your users or applications.
+-----------------------------------------------------------------------------------
+VPC - 
+
+Virtual is like a wall which protects the movement of data by authorized person(with IAM permissions) to tranfer outside the approved projects.
+It means even the person with IAM permission to access that data cannot send the data outside the approved project.
+-----------------------------------------------------------------------------------
+Private Google Access (PGA) - 
+
+It is a VPC subnet setting allowing virtual machines with only internal IP addresses to securely access Google API endpoints, such as Cloud Storage and BigQuery, without requiring a public, internet-facing IP address.
+
+By default, if a Virtual Machine (VM) in GCP does not have a public (external) IP address, it is completely isolated. It cannot talk to the internet, and it cannot talk to Google services like Cloud Storage, BigQuery, or Secret Manager. This is because Google APIs are technically hosted on public IP addresses.
+
+Private Google Access (PGA) is a single toggle switch on a VPC subnet. When turned on, it allows VMs that only have internal (private) IPs to reach Google APIs and services. The traffic never leaves Google's private fiber-optic network and never touches the public internet.
+------------------------------------------------------------------------------------
+Dataplex - 
+a central management control center that lets you organize, monitor, govern, and analyze your data across different storage systems(GCS & Bigquery) 
+
+Centralized Governance & Security:
+Automatic Data Discovery & Metadata:
+Data Quality & Lineage:
+Serverless Data Exploration:
+-------------------------------------------------------------------------------------
+Data classification & Catalog - 
+Data Cataloging is like a search engine for all your company's data. It automatically finds your tables and lists them in a central directory so you know they exist.
+
+Data Classification means labeling the data inside that directory based on how secret or dangerous it is (e.g., labeling a column as High Sensitivity - PII or Low Sensitivity - Public).
+-------------------------------------------------------------------------------------
+Cloud Monitoring - 
+
+Dashboards (The Visuals): Screens filled with live graphs and charts so you can see what is happening right now.
+
+Alerting Policies (The Alarms): Automated background rules that watch the data and broadcast a message (via email, Slack, or SMS) if something breaks.
+--------------------------------------------------------------------------------------
+Cloud Logging -
+
+Cloud Logging is the digital black box or diary of your Google Cloud infrastructure. While Cloud Monitoring tracks numbers (like CPU percentages or memory speeds), Cloud Logging captures text events (sentences, error messages, and system records) that explain exactly what happened and why.
+
+Every log entry comes with a Severity label, which acts as a priority tag ranging from completely harmless to catastrophic.
+---------------------------------------------------------------------------------------
+Log Based Metrics - 
+
+Log-Based Metrics act as a translator bridge between Cloud Logging (text strings) and Cloud Monitoring (numbers).
+Normally, text logs just sit in a massive file list. If a specific error message appears 500 times, Cloud Logging doesn't automatically create a graph out of it or sound an alarm. 
+A log-based metric fixes this by sitting on top of your stream of text logs, watching for a specific word or phrase, and counting how many times it appears.
+---------------------------------------------------------------------------------------
+Data Appliance - 
+When u have to transfer very huge volume of data into GCP.
+Then GCP team will send a physical box, in which u will copy the data and then that box with physically go to the GCP datacenter and then uploaded to the GCP account.
+----------------------------------------------------------------------------------------
+Cloud Run and Cloud Function -
+
+Cloud Functions: A serverless, code-only platform designed to run small, single-purpose snippets of code in response to system events (like a file uploading to Cloud Storage).
+
+Cloud Run: A serverless, container-based platform that can host entire websites, APIs, or complex applications packaged inside a Docker container.
+----------------------------------------------------------------------------------------
+
+**************************************************************************************************
+
+---------------------------------------------------Mock-Client Interview Notes-----------------------------------------
+Catalyst -
+
+Catalyst is Spark SQL's query optimizer.
+It takes DataFrame/SQL queries, creates logical and physical execution plans, and optimizes them before execution.
+
+Main optimizations:
+
+Predicate Pushdown (push filters closer to data)
+Column Pruning (read only required columns)
+Constant Folding
+Join Optimization
+-----------------------------------------------------------------------------------
+1. RDD - RDD is the lowest-level data structure in Spark.
+
+Characteristics-
+No schema
+Data is stored as objects
+No Catalyst optimization
+More code, less performance
+Used when you need low-level control
+
+2. DataFrame-A DataFrame is a distributed table with rows and columns.
+
+Characteristics
+Has schema
+Catalyst optimized
+Faster than RDD
+SQL support
+Most commonly used in PySpark
+
+3. Dataset - DataFrame + Compile-time Type Safety (The compiler checks whether fields, methods, and data types are correct before the program runs)
+	1) Scala
+	2) Java
+---------------------------------------------------------------------------------------
+|IMPORTANT - PYSPARK DOES NOT HAVE DATASET |
+---------------------------------------------------------------------------------------
+
+===============================================================================
+
+*************************************************************************************************
